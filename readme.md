@@ -1,9 +1,9 @@
-# Modelo de inscripcion de materias
+# Modelo de inscripción de materias
 
-Este proyecto vendria siendo una simulación del proceso de inscripcion de materias, con:
+Este proyecto vendría siendo una simulación del proceso de inscripción de materias, con:
 
-* Horario visible con las materias, dias y horas.
-* Opciones para inscribir por codigo cada materia.
+* Horario visible con las materias, días y horas.
+* Opciones para inscribir por código cada materia.
 * CRUD de materias sobre el horario.
 
 Desarrollado con PHP y HTML5, frameworks:
