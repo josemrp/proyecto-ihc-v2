@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * ELIMINAME
+ */
+
 class Materias_model extends CI_Model {
 
         private $materias = array(

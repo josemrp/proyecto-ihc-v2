@@ -9,4 +9,4 @@ Este proyecto vendría siendo una simulación del proceso de inscripción de mat
 Desarrollado con PHP y HTML5, frameworks:
 * Codeigniter
 * Bootstrap
-*	JQuery
+* JQuery

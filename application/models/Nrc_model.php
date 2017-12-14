@@ -1,5 +1,8 @@
 <?php
 
+/*
+ * ELIMINAME
+ */
 class Nrc_model extends CI_Model {
     
     private $NRCs = array(
