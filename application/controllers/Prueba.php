@@ -10,19 +10,24 @@ class Prueba extends CI_Controller
         parent::__construct();
         $this->load->helper('url');
         $this->load->library('session');
-        $this->load->model('Materias_model');
+        $this->load->model('Materia_model');
+        $this->load->model('Seccion_model');
         $this->load->model('Horario_model');
         $this->load->model('Nrc_model');
     }
 
-    public function index($param)
-    {
-        $this->session->set_userdata('secciones', array(25));        
-        $this->load->model('Alumno_model');
-        $D = $this->Alumno_model->inscribir($param);
+    public function index($param = 1)
+    {       
+        $secciones = $this->Seccion_model->get_horarios($param);
+        $horario_organizado = $this->organizar_horario($secciones[0]->horario);
+        $D = $this->horario_2_string($horario_organizado);
         var_dump($D);
     }
     
+    
+    /*
+     * Probar al final con base de datos llena
+     */
     public function depurador_de_horarios()
     {
         $mem_ini = memory_get_usage();
@@ -34,7 +39,7 @@ class Prueba extends CI_Controller
          * Funcion
          */
         $this->load->model('Seccion_model');
-        $D = $this->Seccion_model->aumentar_cupo(2);
+        $D = $this->Seccion_model->get_horarios_1(1);
         var_dump($D);
         /*
          * Fin

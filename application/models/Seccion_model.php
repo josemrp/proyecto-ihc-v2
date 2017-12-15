@@ -31,7 +31,7 @@ class Seccion_model extends CI_Model
     public function get_where_materia($materia_id)
     {
         $this->db->select('seccion.nrc, seccion.cupos');
-        $this->db->select('profesor.nombre AS profesor, materia.nombre AS materia');
+        $this->db->select('profesor.nombre AS profesor');
         $this->db->from('seccion');
         $this->db->join('profesor', 'profesor.id = seccion.profesor_id');
         $this->db->join('materia', 'materia.id = seccion.materia_id ');
@@ -76,7 +76,7 @@ class Seccion_model extends CI_Model
      * METODO 1, acceso recurrente a la base de datos sin valores duplicados
      */
 
-    public function get_horarios_1($materia_id)
+    public function get_horarios($materia_id)
     {
         $secciones = $this->get_where_materia($materia_id);
         foreach ($secciones as &$seccion)

@@ -1,6 +1,4 @@
 <p>
-    <i>Poner el JS al final</i>
-    <br />
     <i>Crear un boton que permita abrir el cuadro de observaciones</i>
 </p>
 
