@@ -11,12 +11,15 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach($horario as $fila): ?>
+            <?php foreach($horario as $hora => $dias): ?>
             <tr>
-                <?php foreach ($fila as $col): ?>
-                    <?php if($col): ?>
+                <td>
+                    <?php echo $hora; ?>
+                </td>
+                <?php foreach ($dias as $dia): ?>
+                    <?php if($dia): ?>
                         <td class="seccion-inscrita">
-                            <?= $col; ?>
+                            <?php echo $dia; ?>
                         </td>
                     <?php else: ?>
                         <td></td>

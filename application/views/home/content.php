@@ -26,6 +26,7 @@
                                 </a>
                             
                             <?php /*
+                             * MATERIAS HABILITADAS
                             <?php if($materias_habilitadas[$materia['id']]): ?>
                                 <a 
                                     href="<?= base_url() . 'index.php/sys/materia/' . $materia['id'] ?>"
@@ -59,13 +60,13 @@
                         <div class="col-xs-6">
                             
                             <div class="progress">
-                                <div class="progress-bar" 
+                                <?php /*<div class="progress-bar" 
                                      role="progressbar" 
                                      aria-valuenow="<?= $creditos ?>"
                                      aria-valuemin="0" 
                                      aria-valuemax="32" 
                                      style="width:<?= $creditos * 100 / 32 ?>%">
-                                </div>
+                                </div> 
                             </div>
                                 
                         </div>
@@ -81,7 +82,7 @@
                                     <a href='<?= base_url() . 'index.php/sys/observaciones' ?>' class="btn btn-primary pull-right <?= $disabled_btn ?>">
                                         Inscribir <span class="glyphicon glyphicon-ok"></span>
                                     </a>
-                                </div>
+                                </div> */?>
                             </div>
                             <br /><br />
                         </div>
