@@ -2,26 +2,13 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Sys extends CI_Controller
+class Sys extends MY_Controller
 {
 
     public function __construct()
     {
         parent::__construct();
-        $this->load->helper('url');
-        $this->load->library('session');
-        $this->load->model('Materias_model');
-        $this->load->model('Horario_model');
-        $this->load->model('Nrc_model');
-
-        if (!$this->session->has_userdata('horario'))
-        {
-            $this->session->set_userdata('horario', $this->Horario_model->get());
-            $this->session->set_userdata('creditos', 0);
-            $this->session->set_userdata(
-                    'materias_habilitadas', $this->Materias_model->get_materias_habilitadas()
-            );
-        }
+        $this->load->model('Materia_model');
     }
 
     /*
@@ -31,26 +18,10 @@ class Sys extends CI_Controller
     public function index()
     {
         $data = new stdClass();
-        $data->materias = $this->Materias_model->get();
+        $data->materias = $this->Materia_model->get_all();
         $data->horario = $this->session->horario;
-        $data->creditos = $this->session->creditos;
-        $data->materias_habilitadas = $this->session->materias_habilitadas;
 
-        if ($data->creditos <= 0)
-        {
-            $data->disabled_btn = 'disabled';
-        }
-        else
-        {
-            $data->disabled_btn = null;
-        }
-
-        $data->creditos = $this->session->creditos;
-
-        $this->load->view('overall/head');
-        $this->load->view('overall/header');
-        $this->load->view('home/content', $data);
-        $this->load->view('overall/footer');
+        $this->template('home/content', $data);
     }
 
     /*
@@ -124,6 +95,7 @@ class Sys extends CI_Controller
     /*
      * Formulario para inscripcion de materias por NRC en las cajas de texto
      */
+
     public function form_nrc()
     {
         $nrcs = array();
@@ -216,15 +188,10 @@ class Sys extends CI_Controller
     public function salir()
     {
         $this->session->unset_userdata('horario');
-        $this->session->unset_userdata('creditos', 0);
-        $this->session->unset_userdata('materias_habilitadas');
-        $this->session->set_userdata('horario', $this->Horario_model->get());
-        $this->session->set_userdata('creditos', 0);
-        $this->session->set_userdata('materias_habilitadas', $this->Materias_model->get_materias_habilitadas());
+        $this->session->unset_userdata('creditos');
+        $this->session->unset_userdata('secciones');
 
-        $this->load->view('overall/head');
-        $this->load->view('overall/header');
-        $this->load->view('overall/footer');
+        echo 'Sesiones eliminadas';
     }
 
     /*

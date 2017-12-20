@@ -1,4 +1,3 @@
-<?php ?>
 <form action="<?= base_url() . 'index.php/materia/agregar' ?>" method="post"> 
     <div class="container">
         <div class="row">

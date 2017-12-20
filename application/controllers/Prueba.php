@@ -2,26 +2,19 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Prueba extends CI_Controller
+class Prueba extends MY_Controller
 {
 
     public function __construct()
     {
         parent::__construct();
-        $this->load->helper('url');
-        $this->load->library('session');
         $this->load->model('Materia_model');
         $this->load->model('Seccion_model');
-        $this->load->model('Horario_model');
-        $this->load->model('Nrc_model');
     }
 
     public function index($param = 1)
-    {       
-        $secciones = $this->Seccion_model->get_horarios($param);
-        $horario_organizado = $this->organizar_horario($secciones[0]->horario);
-        $D = $this->horario_2_string($horario_organizado);
-        var_dump($D);
+    {     
+        
     }
     
     

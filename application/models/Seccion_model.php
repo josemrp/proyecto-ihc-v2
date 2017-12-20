@@ -6,7 +6,6 @@ class Seccion_model extends CI_Model
     public function __construct()
     {
         parent::__construct();
-        $this->load->database();
     }
 
     /*
@@ -15,7 +14,7 @@ class Seccion_model extends CI_Model
 
     public function get_all()
     {
-        $this->db->select('seccion.nrc, seccion.cupos');
+        $this->db->select('seccion.nrc, seccion.cupos, materia.creditos');
         $this->db->select('profesor.nombre AS profesor, materia.nombre AS materia');
         $this->db->from('seccion');
         $this->db->join('profesor', 'profesor.id = seccion.profesor_id');
@@ -46,7 +45,7 @@ class Seccion_model extends CI_Model
 
     public function get($nrc)
     {
-        $this->db->select('seccion.nrc, seccion.cupos');
+        $this->db->select('seccion.nrc, seccion.cupos, materia.creditos');
         $this->db->select('profesor.nombre AS profesor, materia.nombre AS materia');
         $this->db->from('seccion');
         $this->db->join('profesor', 'profesor.id = seccion.profesor_id');

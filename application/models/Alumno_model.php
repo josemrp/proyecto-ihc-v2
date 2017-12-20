@@ -6,7 +6,6 @@ class Alumno_model extends CI_Model
     public function __construct()
     {
         parent::__construct();
-        $this->load->database();
     }
 
     /*
@@ -94,7 +93,7 @@ class Alumno_model extends CI_Model
             );
         }
         $this->db->insert_batch('rel_seccion_alumno', $data);
-        
+
         return $this->db->affected_rows();
     }
 

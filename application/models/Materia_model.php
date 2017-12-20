@@ -6,7 +6,6 @@ class Materia_model extends CI_Model
     public function __construct()
     {
         parent::__construct();
-        $this->load->database();
     }
 
     /*
@@ -15,7 +14,7 @@ class Materia_model extends CI_Model
 
     public function get_all()
     {
-        $this->db->select('id, nombre');
+        $this->db->select('id, nombre, creditos');
         $this->db->from('materia');
         $query = $this->db->get();
         return $query->result();
@@ -27,7 +26,7 @@ class Materia_model extends CI_Model
 
     public function get($id)
     {
-        $this->db->select('id, nombre');
+        $this->db->select('id, nombre, creditos');
         $this->db->from('materia');
         $this->db->where('id', $id);
         $query = $this->db->get();
